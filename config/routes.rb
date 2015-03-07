@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'static_pages#main_page'
+  resources :tweets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
