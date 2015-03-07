@@ -10,7 +10,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.save
     render 'new'
-    #goes back to new
+
+    #goes back to new -- go back to original website
     #saves tweet to the database
 # ruby automatically adds a return to each fcn
   end
