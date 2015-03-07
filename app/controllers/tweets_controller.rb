@@ -1,5 +1,8 @@
 class TweetsController < ApplicationController
 
+  before_action :authenticate_user!
+  #having an exclamation mark means if the authentication does not work, it raises an error
+  #if you only want to show index to signed up users but anyone can POST tweets- --> do: ", only: index" OR ", except: index"
   def new
     @tweet = Tweet.new
     #make new instace of tweet object and call it @tweet
@@ -7,6 +10,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    @tweet.user = current_user
 
      if @tweet.save
     flash[:success] = "You have created a tweet"
